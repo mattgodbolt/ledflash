@@ -26,3 +26,27 @@ module ledflash (Clock, Reset, led);
   end
   
 endmodule
+
+module ledflash_test;
+
+reg clock;
+reg reset;
+wire [7:0] led;
+
+initial begin
+  $monitor("clock=%b,led=%d", clock, led);
+  clock = 0;
+  reset = 0;
+  #20 $finish;
+end
+
+initial begin
+#5 clock = !clock;
+end
+
+ledflash F0 (
+.Clock(clock),
+.Reset(reset),
+.led(led));
+
+endmodule

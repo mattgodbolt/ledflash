@@ -2,3 +2,5 @@
 /db
 /incremental_db
 /simulation
+*.bak
+*.rpt
